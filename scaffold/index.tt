@@ -1,0 +1,9 @@
+{{#tables}}
+import {{name}} from './{{name}}'
+{{/tables}}
+
+export {
+  {{#tables}}
+  {{name}},
+  {{/tables}}
+}

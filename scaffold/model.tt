@@ -1,0 +1,12 @@
+import { ModelManager } from '../database'
+
+var {{table.name}} = ModelManager.Model({
+  tableName: '{{table.name}}',
+  columns: {
+{{#table.columns}}
+    {{name}}: { type: '{{destinationType}}'{{#if isPrimaryKey}}, identity: {{isPrimaryKey}}{{/if}}{{#if isUnique}}, unique: {{isUnique}}{{/if}}{{#if maxLength}}, size: '{{maxLength}}'{{/if}}{{#if isForeignKey}}, referenceTable: '{{fkTarget.table}}'{{/if}}, nullable: {{isNullable}} },
+{{/table.columns}}
+  }
+})
+
+export default {{table.name}}
