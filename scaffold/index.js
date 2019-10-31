@@ -61,6 +61,12 @@ schemaReader.schema.fromServer(dbConfig, function (err, result) {
         tables[x].columns[y].destinationType = tables[x].columns[y].nativeType
       }
 
+      if (tables[x].columns[y].isForeignKey)
+      {
+        const target = tables[x].columns[y].name.substring(2).concat('s')
+        tables[x].columns[y].fkTarget.table = target
+      }
+
       if (uniqueColumns.indexOf(table.columns[y].name) > -1 || tables[x].columns[y].isPrimaryKey) {
         if (tables[x].columns[y].isPrimaryKey) {
           tables[x].primaryKeyColumn = tables[x].columns[y]
