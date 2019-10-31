@@ -7,6 +7,7 @@ var Users = ModelManager.Model({
     IdPerson: { type: 'integer', referenceTable: 'Persons', nullable: false },
     Login: { type: 'string', unique: true, size: '150', nullable: false },
     Password: { type: 'password', size: '100', nullable: false },
+    Instagram: { type: 'string', size: '150', nullable: true },
     CreatedAt: { type: 'datetime', nullable: false },
     UpdatedAt: { type: 'datetime', nullable: true },
     DeletedAt: { type: 'datetime', nullable: true },
